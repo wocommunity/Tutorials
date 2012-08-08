@@ -1,0 +1,24 @@
+{
+    attributes = (
+        {columnName = email; name = email; prototypeName = varchar100; }, 
+        {columnName = firstName; name = firstName; prototypeName = varchar50; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = lastName; name = lastName; prototypeName = varchar50; }
+    ); 
+    attributesUsedForLocking = (email, firstName, id, lastName); 
+    className = "your.app.model.Author"; 
+    classProperties = (blogEntries, email, firstName, lastName); 
+    externalName = Author; 
+    fetchSpecificationDictionary = {}; 
+    name = Author; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = BlogEntry; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = authorID; sourceAttribute = id; }); 
+            name = blogEntries; 
+        }
+    ); 
+}

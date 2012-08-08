@@ -1,0 +1,6 @@
+(
+    100 : *true* => richTextMode = simpleRichTextMode [er.directtoweb.ERDKeyValueAssignment],
+    100 : ((pageConfiguration = 'EditBlogEntry' or pageConfiguration = 'CreateBlogEntry') and propertyKey = 'content') => componentName = ERDEditHTML [com.webobjects.directtoweb.Assignment],
+    102 : (pageConfiguration = 'EditBlogEntry' or pageConfiguration = 'InspectBlogEntry') => displayPropertyKeys = (title,content,creationDate,lastModified,author
+) [com.webobjects.directtoweb.Assignment]
+)

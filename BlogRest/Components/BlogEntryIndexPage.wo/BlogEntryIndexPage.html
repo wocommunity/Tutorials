@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>untitled</title>
+  </head>
+  <body>
+    <wo:loop list="$entries" item="$entryItem">
+      <p><wo:ERXRouteLink entityName="BlogEntry" record="$entryItem" action="show"><wo:str value="$entryItem.title" /></wo:ERXRouteLink></p>
+      <p><wo:str value="$entryItem.author.fullName" /></p>
+    </wo:loop>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+(
+	{
+		name = Root;
+		directActionClass = DirectAction;
+		directActionName = default;
+		children = "session.navigationRootChoice";
+		childrenChoices = {
+			home = (
+				Posts,
+				Authors
+			);
+		};
+	},
+	{
+		name = "Posts";
+		action = "session.navController.listPostsAction";
+		children = ("CreatePost","SearchPosts");
+	},
+	{
+		name = CreatePost;
+		action = "session.navController.createPostAction";
+	},
+	{
+		name = SearchPosts;
+		action = "session.navController.searchPostsAction";
+	},	
+	{
+		name = Authors;
+		action = "session.navController.listAuthorsAction";
+		children = ("CreateAuthor","SearchAuthors");
+	},
+	{
+		name = CreateAuthor;
+		action = "session.navController.createAuthorAction";
+	},
+	{
+		name = SearchAuthors;
+		action = "session.navController.searchAuthorsAction";
+	}
+)

@@ -1,0 +1,21 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {URL = "jdbc:h2:~/BlogTutorial"; }; 
+    entities = (
+        {className = "your.app.model.Author"; name = Author; }, 
+        {className = "your.app.model.BlogEntry"; name = BlogEntry; }
+    ); 
+    userInfo = {
+        "_EntityModeler" = {
+            activeDatabaseConfigName = Default; 
+            databaseConfigs = {
+                Default = {
+                    adaptorName = JDBC; 
+                    connectionDictionary = {URL = "jdbc:h2:~/BlogTutorial"; }; 
+                    prototypeEntityName = EOJDBCH2Prototypes; 
+                }; 
+            }; 
+        }; 
+    }; 
+}

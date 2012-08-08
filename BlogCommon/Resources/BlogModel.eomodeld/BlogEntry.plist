@@ -1,0 +1,27 @@
+{
+    attributes = (
+        {allowsNull = N; columnName = authorID; name = authorID; prototypeName = id; }, 
+        {columnName = content; name = content; prototypeName = longText; }, 
+        {columnName = creationDate; name = creationDate; prototypeName = dateTime; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = lastModified; name = lastModified; prototypeName = dateTime; }, 
+        {columnName = title; name = title; prototypeName = varchar255; }
+    ); 
+    attributesUsedForLocking = (authorID, content, id, title); 
+    className = "your.app.model.BlogEntry"; 
+    classProperties = (author, content, creationDate, lastModified, title); 
+    externalName = BlogEntry; 
+    fetchSpecificationDictionary = {}; 
+    name = BlogEntry; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Author; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = authorID; }); 
+            name = author; 
+        }
+    ); 
+}
