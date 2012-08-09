@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>untitled</title>
+  </head>
+  <body>
+    <h1>Our super blog</h1>
+    <wo:if condition="$displayGroup.hasMultipleBatches">
+      <div>
+        <wo:link action="$displayGroup.displayPreviousBatch">Previous</wo:link>
+        | Batch 
+        <wo:str value="$displayGroup.currentBatchIndex" />
+        of 
+        <wo:str value="$displayGroup.batchCount" />
+        | 
+        <wo:link action="$displayGroup.displayNextBatch">Next</wo:link>
+      </div>
+    </wo:if>
+    <wo:loop list="$displayGroup.displayedObjects" item="$blogEntryItem">
+      <p><wo:str value="$blogEntryItem.title" /></p>
+      <p><wo:str value="$blogEntryItem.content" escapeHTML="false" /></p>
+      <p>Created by 
+        <wo:str value="$blogEntryItem.author.fullName" />
+        on 
+        <wo:str value="$blogEntryItem.creationDate" />
+      </p>
+      <hr />
+    </wo:loop>
+    <wo:link pageName="AdminMainPage">Admin</wo:link>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>untitled</title>
+  </head>
+  <body>
+    <wo:AjaxUpdateContainer id="main">
+      <wo:if condition="$isLogged">
+      	<div><wo:link action="$createBlogEntry">Create a new blog entry</wo:link></div>
+        <wo:if condition="$displayGroup.hasMultipleBatches">
+          <div>
+            <wo:link action="$displayGroup.displayPreviousBatch">Previous</wo:link>
+            | Batch 
+            <wo:str value="$displayGroup.currentBatchIndex" />
+            of 
+            <wo:str value="$displayGroup.batchCount" />
+            | 
+            <wo:link action="$displayGroup.displayNextBatch">Next</wo:link>
+          </div>
+        </wo:if>
+        <table>
+          <tr>
+            <th><wo:WOSortOrder displayGroup="$displayGroup" key="title" /> Title</th>
+            <th>Author</th>
+            <th><wo:WOSortOrder displayGroup="$displayGroup" key="creationDate" /> Created on</th>
+            <th><wo:WOSortOrder displayGroup="$displayGroup" key="lastModified" /> Last modified</th>
+          </tr>
+          <wo:loop list="$displayGroup.displayedObjects" item="$blogEntryItem">
+            <tr>
+              <td>
+                <wo:link action="$editBlogEntry"><wo:str value="$blogEntryItem.title" /></wo:link>
+              </td>
+              <td> <wo:str value="$blogEntryItem.author.fullName" /> </td>
+              <td> <wo:str value="$blogEntryItem.creationDate" dateformat="%Y/%m/%d" /> </td>
+              <td> <wo:str value="$blogEntryItem.lastModified" dateformat="%Y/%m/%d" /> </td>
+            </tr>
+          </wo:loop>
+        </table>
+      </wo:if>
+      <wo:else>
+        <wo:if condition="$errorMessage">
+          <span style="text-color: red;">Error: <wo:str value="$errorMessage" /></span>
+        </wo:if>
+        <wo:form>
+          <div>
+            <label>Email address:</label>
+            <wo:textField value="$emailAddress" />
+          </div>
+          <div><wo:AjaxSubmitButton updateContainerID="main" action="$login" value="Login" /></div>
+        </wo:form>
+      </wo:else>
+    </wo:AjaxUpdateContainer>
+  </body>
+</html>

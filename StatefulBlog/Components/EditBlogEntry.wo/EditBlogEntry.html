@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>untitled</title>
+  </head>
+  <body>
+    <wo:form>
+      <div>
+        <label>Title:</label>
+        <wo:textfield value="$blogEntry.title" />
+      </div>
+      <div>
+        <label>Content:</label>
+        <wo:text value="$blogEntry.content" rows="20" cols="80" />
+      </div>
+      <div>Author: <wo:str value="$session.loggedAuthor.fullName" /></div>
+      <div><wo:submitButton action="$save" value="Save changes" /></div>
+    </wo:form>
+  </body>
+</html>
